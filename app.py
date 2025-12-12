@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 import numpy as np
 import bank_marketing_ml as ml
 import matplotlib
@@ -19,7 +20,7 @@ This application predicts whether a client will subscribe to a term deposit base
 # Load Data (Cached)
 @st.cache_data
 def load_data():
-    filepath = 'd:\\ml_ca_2\\Bank_Marketing.csv'
+    filepath = os.path.join(os.path.dirname(__file__), 'Bank_Marketing.csv')
     return ml.load_and_preprocess_data(filepath)
 
 # Load resources
