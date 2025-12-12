@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
@@ -117,7 +118,7 @@ def predict_custom(input_data, preprocessor, model, le, numerical_cols, categori
     return prediction[0]
 
 def main():
-    filepath = 'd:\\ml_ca_2\\Bank_Marketing.csv'
+    filepath = os.path.join(os.path.dirname(__file__), 'Bank_Marketing.csv')
     
     # 1. Load and Preprocess
     _, X, y, preprocessor, le, num_cols, cat_cols = load_and_preprocess_data(filepath)
